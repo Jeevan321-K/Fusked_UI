@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar"; // Ensure this path matches your structure
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,20 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-white text-[var(--text-main)]">
-        {/* The Navbar stays at the top of every page */}
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className="min-h-screen flex flex-col bg-white overflow-x-hidden antialiased">
         <Navbar />
-        
-        {/* The 'flex-grow' ensures this area takes up available space */}
-        <main className="flex-grow">
+        {/* Removed pt-20 md:pt-28 because Hero and ShopPage need to flow beneath the translucent navbar */}
+        <main className="flex-grow w-full flex flex-col">
           {children}
         </main>
-
-        {/* Footer will go here later */}
+        <Footer />
       </body>
     </html>
   );
