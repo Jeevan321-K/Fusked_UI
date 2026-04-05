@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Star } from 'lucide-react';
 
 const products = [
-    { title: "Dreamy Cloud Bear", oldPrice: "$45", newPrice: "$29.99", img: "/images/teddy2.jpg" },
-    { title: "Snuggly Koala Hugs", oldPrice: "$50", newPrice: "$38.99", img: "/images/teddy6.jpg" },
-    { title: "Giant Cuddle Bunny", oldPrice: "$85", newPrice: "$55.99", img: "/images/teddy9.jpg" }
+    { title: "Dreamy Cloud Bear", oldPrice: "₹4,599", newPrice: "₹2,999", img: "/images/teddy2.jpg" },
+    { title: "Snuggly Koala Hugs", oldPrice: "₹3,999", newPrice: "₹1,999", img: "/images/teddy6.jpg" },
+    { title: "Giant Cuddle Bunny", oldPrice: "₹7,599", newPrice: "₹5,499", img: "/images/teddy9.jpg" }
 ];
 
 const SaleSection = () => {

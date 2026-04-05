@@ -143,7 +143,7 @@ const ShopPage = () => {
                    initial={{ opacity: 0, scale: 0.95 }}
                    animate={{ opacity: 1, scale: 1 }}
                    transition={{ delay: 0.6 }}
-                   className="w-full mt-12 rounded-[40px] overflow-hidden relative group p-2 shadow-2xl"
+                   className="w-full mt-12 rounded-[40px] overflow-hidden relative group shadow-2xl mx-auto"
                 >
                    {/* Animated Background */}
                    <motion.div 
@@ -151,11 +151,12 @@ const ShopPage = () => {
                       transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                       className="absolute inset-0 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 bg-[length:200%_200%] z-0" 
                    />
-                   <div className="relative z-10 bg-white/20 backdrop-blur-sm rounded-[36px] overflow-hidden">
-                       <img 
+                   <div className="relative z-10 w-full h-full overflow-hidden flex justify-center">
+                       <motion.img 
+                          whileHover={{ scale: 1.05 }}
                           src="/images/poster.webp" 
                           alt="Harry Potter Magic Collection" 
-                          className="w-full h-auto max-h-[400px] object-cover hover:scale-[1.02] transition-transform duration-700" 
+                          className="w-full h-[600px] md:h-[800px] object-cover transition-transform duration-1000 ease-out" 
                        />
                    </div>
                 </motion.div>

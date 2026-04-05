@@ -25,18 +25,63 @@ const Hero = () => {
         }}
       />
 
-      {/* 2. FLOATING PARTICLES */}
-      {[20, 45, 75].map((pos, i) => (
-        <motion.span
-          key={i}
-          animate={{ y: [-10, -80], opacity: [0, 0.6, 0], scale: [1, 1.2, 1] }}
-          transition={{ duration: 5, repeat: Infinity, delay: i * 1.5 }}
-          className="absolute text-xl z-0 opacity-30"
-          style={{ left: `${pos}%`, top: '65%' }}
-        >
-          {i % 2 === 0 ? "💖" : "✨"}
-        </motion.span>
-      ))}
+      {/* 2. FLOATING SPARKLES & HEARTS */}
+      <motion.div 
+        animate={{ y: [0, -15, 0], opacity: [0.5, 1, 0.5] }}
+        transition={{ duration: 4, repeat: Infinity }}
+        className="absolute top-32 left-1/4 text-pink-300 z-0 text-2xl hidden md:block"
+      >
+        ✨
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, -20, 0], opacity: [0.3, 0.8, 0.3], rotate: [0, 10, 0] }}
+        transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+        className="absolute bottom-40 left-10 text-pink-200 z-0 text-4xl hidden md:block"
+      >
+        💖
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, -10, 0], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+        className="absolute top-40 right-1/3 text-yellow-200 z-0 text-xl hidden md:block"
+      >
+        ✨
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, -25, 0], opacity: [0.4, 0.9, 0.4], scale: [1, 1.2, 1] }}
+        transition={{ duration: 4.5, repeat: Infinity, delay: 2 }}
+        className="absolute top-52 right-1/4 text-purple-300 z-0 text-3xl hidden md:block"
+      >
+        💖
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, 15, 0], opacity: [0.2, 0.7, 0.2] }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 1.5 }}
+        className="absolute bottom-20 right-1/2 text-pink-400 z-0 text-2xl hidden md:block"
+      >
+        💕
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, -30, 0], opacity: [0.5, 1, 0.5], rotate: [-10, 10, -10] }}
+        transition={{ duration: 6, repeat: Infinity, delay: 0.2 }}
+        className="absolute top-20 right-10 text-pink-200 z-0 text-5xl hidden md:block"
+      >
+        💘
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, 10, 0], opacity: [0.3, 0.8, 0.3], scale: [0.8, 1, 0.8] }}
+        transition={{ duration: 4, repeat: Infinity, delay: 0.8 }}
+        className="absolute bottom-1/3 left-1/3 text-yellow-300 z-0 text-2xl hidden md:block"
+      >
+        ⭐
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, -20, 0], opacity: [0.4, 0.9, 0.4] }}
+        transition={{ duration: 5.5, repeat: Infinity, delay: 2.5 }}
+        className="absolute top-1/3 left-10 text-pink-300 z-0 text-3xl hidden md:block"
+      >
+        💗
+      </motion.div>
 
       {/* 3. LEFT CONTENT */}
       <div className="flex-1 z-10 text-center md:text-left py-12">

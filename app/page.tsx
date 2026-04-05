@@ -6,6 +6,7 @@ import SaleSection from "@/components/home/SaleSection";
 import TestimonialSection from "@/components/home/TestimonialSection";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import InstagramSection from "@/components/home/InstagramSection";
+import VideoSection from "@/components/home/VideoSection";
 
 export default function Home() {
   return (
@@ -22,6 +23,9 @@ export default function Home() {
 
       {/* 4. Spring Sale Promo Banner */}
       <BannerSection />
+
+      {/* Hero Video Showcase */}
+      <VideoSection />
 
       {/* 5. New Sale Section Products */}
       <SaleSection />

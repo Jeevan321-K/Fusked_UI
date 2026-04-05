@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "tailwindcss"; 
+@import "tailwindcss";
 
 :root {
   /* Theme Variables */
-  --primary-color: #ff85a2; 
-  --secondary-color: #e0f6ff; /* Soft Blue Glow */
+  --primary-color: #ff85a2;
+  --secondary-color: #dbeefd;
+  /* Soft Blue Glow */
   --text-main: #2d3436;
   --bg-glass: rgba(255, 255, 255, 0.85);
-  --background: #daf8ff;
+  --background: #f6daff;
   --foreground: #171717;
 }
 
@@ -40,9 +41,17 @@ body {
 
 /* Custom Animation for the 30% OFF badge */
 @keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
+
 .animate-bounce-slow {
   animation: bounce-slow 3s infinite ease-in-out;
 }
