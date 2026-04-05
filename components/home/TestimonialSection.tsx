@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 const TestimonialSection = () => {
     return (
-        <section className="py-24 px-6 md:px-24 bg-gradient-to-b from-white to-pink-50/30">
+        <section className="py-16 md:py-24 px-6 md:px-24 bg-gradient-to-b from-white to-pink-50/30">
             <div className="max-w-[1440px] mx-auto text-center">
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-                    <h2 className="text-4xl md:text-5xl font-black text-gray-800 tracking-tight flex items-center justify-center gap-3">
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 md:mb-16">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 tracking-tight flex items-center justify-center gap-3">
                         Customer Love Stories 💌
                     </h2>
                     <p className="text-gray-500 mt-4 text-lg font-medium">See what our happy customers are saying</p>
@@ -18,7 +18,7 @@ const TestimonialSection = () => {
                        initial={{ opacity: 0, scale: 0.95 }}
                        whileInView={{ opacity: 1, scale: 1 }}
                        viewport={{ once: true }}
-                       className="bg-white rounded-[40px] p-8 md:p-16 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-pink-50 flex flex-col md:flex-row items-center gap-10"
+                       className="bg-white rounded-[40px] p-6 sm:p-8 md:p-16 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-pink-50 flex flex-col md:flex-row items-center gap-8 md:gap-10"
                     >
                         <div className="relative shrink-0">
                             <div className="w-28 h-28 rounded-full border-[6px] border-pink-100 overflow-hidden shadow-inner">
@@ -33,7 +33,7 @@ const TestimonialSection = () => {
                             <div className="flex gap-1 text-pink-300 mb-4 text-xl">
                                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                             </div>
-                            <p className="text-xl md:text-2xl font-medium text-gray-700 leading-relaxed mb-6">
+                            <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-700 leading-relaxed mb-6">
                                 "The most adorable teddy bear I've ever purchased! My daughter absolutely loves it. The quality is outstanding and it's so soft and cuddly. 💕"
                             </p>
                             <div>

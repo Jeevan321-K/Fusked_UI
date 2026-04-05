@@ -15,10 +15,10 @@ const InstagramSection = () => {
     ];
 
     return (
-        <section className="py-24 px-6 md:px-24 bg-white border-t border-gray-50">
+        <section className="py-16 md:py-24 px-6 md:px-24 bg-white border-t border-gray-50">
             <div className="max-w-[1440px] mx-auto text-center">
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                    <h2 className="text-4xl md:text-5xl font-black text-gray-800 tracking-tight flex items-center justify-center gap-3">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 tracking-tight flex items-center justify-center gap-3">
                         Follow Our Journey 📸
                     </h2>
                     <p className="text-gray-500 mt-4 text-lg font-medium">Join our community @cuddlecloud</p>

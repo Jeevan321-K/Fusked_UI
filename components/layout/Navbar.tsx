@@ -1,10 +1,11 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingCart, Heart, User, Search, Palette } from 'lucide-react';
+import { ShoppingCart, Heart, User, Search, Palette, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [showThemes, setShowThemes] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const themes = [
@@ -35,20 +36,26 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 px-6 md:px-20 py-4 ${scrolled
+    <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 px-4 md:px-20 py-3 md:py-4 ${scrolled
         ? "bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-100"
         : "bg-white/40 backdrop-blur-md border-b border-transparent"
       }`}>
       <div className="max-w-[1440px] mx-auto flex items-center justify-between">
 
-        {/* 1. Logo Section */}
-        <div className="flex items-center gap-3 cursor-pointer group">
-          <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center shadow-sm relative border border-pink-50 overflow-hidden">
-            <span className="text-xl">🧸</span>
+        {/* 1. Mobile Menu Toggle & Logo Section */}
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="lg:hidden cursor-pointer -ml-1 pr-2" onClick={() => setShowMobileMenu(true)}>
+            <Menu size={28} className="text-gray-800 hover:text-[var(--primary-color)] transition-colors" />
           </div>
-          <span className="text-2xl font-black text-gray-800 tracking-tighter">
-            Cuddle<span className="text-[var(--primary-color)]">Cloud</span>
-          </span>
+
+          <div className="flex items-center gap-2 md:gap-3 cursor-pointer group">
+            <div className="hidden sm:flex w-10 h-10 bg-white rounded-2xl items-center justify-center shadow-sm relative border border-pink-50 overflow-hidden">
+              <span className="text-xl">🧸</span>
+            </div>
+            <span className="text-xl md:text-2xl font-black text-gray-800 tracking-tighter">
+              Cuddle<span className="text-[var(--primary-color)]">Cloud</span>
+            </span>
+          </div>
         </div>
 
         {/* 2. Navigation Links */}
@@ -66,7 +73,7 @@ const Navbar = () => {
         </div>
 
         {/* 3. Actions (Search + Icons) */}
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="flex items-center gap-3 md:gap-6">
 
           {/* Refined Search Bar */}
           <div className="hidden md:flex items-center bg-gray-100/50 px-4 py-2 rounded-full border border-gray-100 focus-within:bg-white focus-within:ring-2 focus-within:ring-pink-100 transition-all">
@@ -107,7 +114,7 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            <div className="relative cursor-pointer group">
+            <div className="hidden sm:flex relative cursor-pointer group">
               <Heart size={22} className="group-hover:text-[var(--primary-color)] transition-colors" />
               <span className="absolute -top-2 -right-2 bg-[var(--primary-color)] text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold">3</span>
             </div>
@@ -117,10 +124,60 @@ const Navbar = () => {
               <span className="absolute -top-2 -right-2 bg-[var(--primary-color)] text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold">2</span>
             </div>
 
-            <User size={22} className="hover:text-[var(--primary-color)] cursor-pointer transition-colors" />
+            <div className="hidden sm:block">
+              <User size={22} className="hover:text-[var(--primary-color)] cursor-pointer transition-colors" />
+            </div>
           </div>
         </div>
       </div>
+      {/* Mobile Sidebar */}
+      <AnimatePresence>
+        {showMobileMenu && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowMobileMenu(false)}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[1010] lg:hidden"
+            />
+            <motion.div
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
+              className="fixed top-0 left-0 h-screen w-[280px] bg-white shadow-2xl z-[1020] flex flex-col p-6 lg:hidden"
+            >
+              <div className="flex justify-between items-center mb-10 border-b border-gray-100 pb-4">
+                <span className="text-xl font-black text-gray-800 tracking-tighter">
+                  Cuddle<span className="text-[var(--primary-color)]">Cloud</span>
+                </span>
+                <X size={24} className="cursor-pointer text-gray-500 hover:text-pink-500" onClick={() => setShowMobileMenu(false)} />
+              </div>
+              <div className="flex flex-col gap-6 font-bold text-gray-600 text-lg tracking-tight">
+                {['Home', 'Shop', 'Categories', 'About', 'Contact'].map((item) => (
+                  <a
+                    key={item}
+                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    onClick={() => setShowMobileMenu(false)}
+                    className="hover:text-[var(--primary-color)] transition-colors active:scale-95 origin-left"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+              <div className="mt-auto flex flex-col gap-4 text-gray-400 text-sm border-t border-gray-100 pt-6">
+                <p>Welcome to Cuddle Cloud 🎈</p>
+                <div className="flex gap-4">
+                   <Heart size={20} className="hover:text-[var(--primary-color)] cursor-pointer transition-colors" />
+                   <ShoppingCart size={20} className="hover:text-[var(--primary-color)] cursor-pointer transition-colors" />
+                   <User size={20} className="hover:text-[var(--primary-color)] cursor-pointer transition-colors" />
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

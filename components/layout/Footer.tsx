@@ -7,10 +7,10 @@ const Footer = () => {
     return (
         <footer className="w-full bg-pink-50/60 pt-20 pb-10 border-t border-pink-100/50">
             <div className="max-w-[1440px] mx-auto px-6 md:px-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 mb-16">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-8 mb-12 md:mb-16">
                     
                     {/* Brand Section */}
-                    <div className="flex flex-col gap-6">
+                    <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col gap-4 md:gap-6">
                         <div className="flex items-center gap-3 cursor-pointer group">
                             <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center shadow-sm relative border border-pink-50 overflow-hidden">
                                 <span className="text-xl">🧸</span>
@@ -36,7 +36,7 @@ const Footer = () => {
                     </div>
 
                     {/* Quick Links */}
-                    <div className="flex flex-col gap-6">
+                    <div className="col-span-1 flex flex-col gap-3 md:gap-6">
                         <h4 className="text-lg font-bold text-gray-800 uppercase tracking-wide">Quick Links</h4>
                         <ul className="flex flex-col gap-3 text-sm text-gray-500 font-medium">
                             {['Shop Collection', 'Our Story', 'Teddy Care Guide', 'Gift Cards', 'Track Order'].map((link) => (
@@ -48,7 +48,7 @@ const Footer = () => {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="flex flex-col gap-6">
+                    <div className="col-span-1 flex flex-col gap-3 md:gap-6">
                         <h4 className="text-lg font-bold text-gray-800 uppercase tracking-wide">Contact Us</h4>
                         <ul className="flex flex-col gap-4 text-sm text-gray-500 font-medium">
                             <li className="flex items-center gap-3">
@@ -67,7 +67,7 @@ const Footer = () => {
                     </div>
 
                     {/* Newsletter Setup */}
-                    <div className="flex flex-col gap-6">
+                    <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col gap-4 md:gap-6">
                         <h4 className="text-lg font-bold text-gray-800 uppercase tracking-wide">Join the Club</h4>
                         <p className="text-sm text-gray-500 leading-relaxed">
                             Subscribe for early access to new teddy bears, exclusive discounts, and sweet surprises.

@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -13,7 +15,7 @@ const Hero = () => {
   if (!mounted) return <section className="min-h-[90vh] bg-white" />;
 
   return (
-    <section className="relative min-h-[85vh] w-full flex flex-col md:flex-row items-center justify-between px-8 md:px-24 pt-24 md:pt-28 pb-12 overflow-hidden z-10 bg-white">
+    <section className="relative min-h-[85vh] w-full flex flex-col md:flex-row items-center justify-between px-6 md:px-24 pt-32 md:pt-28 pb-12 overflow-hidden z-10 bg-white">
       {/* Adjusted top padding to fix unnecessary gap below navbar */}
 
       {/* 1. SOFT BLUE RADIAL GLOW (The Figma Effect) */}
@@ -84,7 +86,7 @@ const Hero = () => {
       </motion.div>
 
       {/* 3. LEFT CONTENT */}
-      <div className="flex-1 z-10 text-center md:text-left py-12">
+      <div className="flex-1 w-full z-10 text-center md:text-left py-8 md:py-12 px-2 md:px-0">
         {/* Collection Badge */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -98,7 +100,7 @@ const Hero = () => {
         <motion.h1
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-5xl md:text-7xl font-bold text-[#333] leading-[1.05] tracking-tight"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold text-[#333] leading-[1.05] tracking-tight"
         >
           Cuddles That Last <br />
           <span className="text-[var(--primary-color)] opacity-80">Forever 💜</span>
@@ -108,7 +110,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="mt-8 text-lg text-gray-500 max-w-lg leading-relaxed"
+          className="mt-8 text-lg text-gray-500 max-w-lg leading-relaxed mx-auto md:mx-0"
         >
           Discover our adorable collection of handcrafted teddy bears. Each bear is made with love to bring joy and comfort to your special moments.
         </motion.p>
@@ -120,10 +122,10 @@ const Hero = () => {
           transition={{ delay: 0.4 }}
           className="mt-10 flex flex-wrap justify-center md:justify-start gap-4"
         >
-          <Button variant="primary" className="px-10 py-4 shadow-pink-200 shadow-xl flex items-center gap-2">
+          <Button variant="primary" onClick={() => router.push('/shop')} className="px-10 py-4 shadow-pink-200 shadow-xl flex items-center gap-2">
             Shop Now 💖
           </Button>
-          <Button variant="outline" className="px-10 py-4 border-gray-100 text-gray-600 bg-white hover:shadow-md transition-all">
+          <Button variant="outline" onClick={() => router.push('/categories')} className="px-10 py-4 border-gray-100 text-gray-600 bg-white hover:shadow-md transition-all">
             View Collection
           </Button>
         </motion.div>
@@ -133,25 +135,25 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="mt-16 flex gap-8 md:gap-12 border-t border-gray-100 pt-8"
+          className="mt-12 md:mt-16 flex flex-wrap justify-center md:justify-start gap-4 sm:gap-8 md:gap-12 border-t border-gray-100 pt-8 w-full"
         >
-          <motion.div whileHover={{ scale: 1.15, y: -8 }} className="cursor-pointer transition-all p-4 rounded-2xl bg-white/50 hover:bg-white shadow-sm hover:shadow-xl border border-transparent hover:border-pink-100 flex flex-col items-center justify-center">
-            <h4 className="text-3xl font-black text-[var(--primary-color)] mb-1">1000+</h4>
-            <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Happy Customers</p>
+          <motion.div whileHover={{ scale: 1.15, y: -8 }} className="cursor-pointer transition-all p-3 sm:p-4 rounded-2xl bg-white/50 hover:bg-white shadow-sm hover:shadow-xl border border-transparent hover:border-pink-100 flex flex-col items-center justify-center min-w-[100px]">
+            <h4 className="text-2xl md:text-3xl font-black text-[var(--primary-color)] mb-1">1000+</h4>
+            <p className="text-[10px] sm:text-xs text-gray-500 font-bold uppercase tracking-wider text-center">Happy Customers</p>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.15, y: -8 }} className="cursor-pointer transition-all p-4 rounded-2xl bg-white/50 hover:bg-white shadow-sm hover:shadow-xl border border-transparent hover:border-pink-100 flex flex-col items-center justify-center">
-            <h4 className="text-3xl font-black text-[var(--primary-color)] mb-1">500+</h4>
-            <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Unique Bears</p>
+          <motion.div whileHover={{ scale: 1.15, y: -8 }} className="cursor-pointer transition-all p-3 sm:p-4 rounded-2xl bg-white/50 hover:bg-white shadow-sm hover:shadow-xl border border-transparent hover:border-pink-100 flex flex-col items-center justify-center min-w-[100px]">
+            <h4 className="text-2xl md:text-3xl font-black text-[var(--primary-color)] mb-1">500+</h4>
+            <p className="text-[10px] sm:text-xs text-gray-500 font-bold uppercase tracking-wider text-center">Unique Bears</p>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.15, y: -8 }} className="cursor-pointer transition-all p-4 rounded-2xl bg-white/50 hover:bg-white shadow-sm hover:shadow-xl border border-transparent hover:border-pink-100 flex flex-col items-center justify-center">
-            <h4 className="text-3xl font-black text-[var(--primary-color)] mb-1">4.9★</h4>
-            <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Customer Rating</p>
+          <motion.div whileHover={{ scale: 1.15, y: -8 }} className="cursor-pointer transition-all p-3 sm:p-4 rounded-2xl bg-white/50 hover:bg-white shadow-sm hover:shadow-xl border border-transparent hover:border-pink-100 flex flex-col items-center justify-center min-w-[100px]">
+            <h4 className="text-2xl md:text-3xl font-black text-[var(--primary-color)] mb-1">4.9★</h4>
+            <p className="text-[10px] sm:text-xs text-gray-500 font-bold uppercase tracking-wider text-center">Customer Rating</p>
           </motion.div>
         </motion.div>
       </div>
 
       {/* 4. RIGHT CONTENT - THE 3D IMAGE CARD */}
-      <div className="flex-1 flex justify-center items-center relative mt-12 md:mt-0">
+      <div className="flex-1 w-full flex justify-center items-center relative mt-12 md:mt-0 px-2 lg:px-0">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -166,7 +168,7 @@ const Hero = () => {
           />
 
           {/* Limited Edition Float Badge */}
-          <div className="absolute bottom-6 right-6 bg-white p-4 rounded-2xl shadow-xl border border-pink-50 text-center animate-bounce-slow">
+          <div className="absolute bottom-6 right-6 bg-white p-4 rounded-2xl shadow-xl border border-pink-50 text-center animate-bounce-slow max-w-[120px] sm:max-w-none">
             <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Limited Edition</p>
             <p className="text-lg font-black text-[var(--primary-color)]">30% OFF</p>
           </div>
